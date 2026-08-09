@@ -46,8 +46,8 @@ const destinations: Destination[] = [
     name: "Pillowfort Atoll",
     short: "Pillowfort",
     detail: "Soft shores, blanket reefs, and excellent snack anchorage.",
-    x: 21,
-    y: 25,
+    x: 18,
+    y: 21,
     legs: 3,
     symbol: "◒",
     bearing: "NNW",
@@ -57,8 +57,8 @@ const destinations: Destination[] = [
     name: "Galley Bay",
     short: "Galley Bay",
     detail: "A warm harbor famous for cocoa currents and biscuit cargo.",
-    x: 72,
-    y: 23,
+    x: 77,
+    y: 20,
     legs: 3,
     symbol: "♨",
     bearing: "NE",
@@ -69,7 +69,7 @@ const destinations: Destination[] = [
     short: "Lookout",
     detail: "Climb high, sweep the horizon, and signal the whole fleet.",
     x: 84,
-    y: 57,
+    y: 59,
     legs: 4,
     symbol: "✦",
     bearing: "ESE",
@@ -79,8 +79,8 @@ const destinations: Destination[] = [
     name: "Sofa Sea",
     short: "Sofa Sea",
     detail: "Deep blue cushions with mysterious creatures below.",
-    x: 54,
-    y: 74,
+    x: 55,
+    y: 80,
     legs: 4,
     symbol: "≈",
     bearing: "SSE",
@@ -90,8 +90,8 @@ const destinations: Destination[] = [
     name: "Bubblewater Falls",
     short: "Bubblewater",
     detail: "A sparkling cascade where bath-toy boats gather.",
-    x: 15,
-    y: 70,
+    x: 19,
+    y: 72,
     legs: 4,
     symbol: "⁂",
     bearing: "SW",
@@ -101,8 +101,8 @@ const destinations: Destination[] = [
     name: "Moonlight Cove",
     short: "Moonlight Cove",
     detail: "A hush-hush harbor best reached by lantern light.",
-    x: 43,
-    y: 42,
+    x: 49,
+    y: 21,
     legs: 3,
     symbol: "☾",
     bearing: "ENE",
@@ -476,6 +476,15 @@ export default function Home() {
           </div>
 
           <div className="chart" aria-label="Map of house destinations">
+            <img
+              className="chart-art"
+              src="/great-indoor-sea-v2.webp"
+              alt=""
+              width={1254}
+              height={1254}
+              decoding="async"
+              fetchPriority="high"
+            />
             <div className="chart-grid" aria-hidden="true" />
             <div className="depth depth-one" aria-hidden="true">120</div>
             <div className="depth depth-two" aria-hidden="true">80</div>

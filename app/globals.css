@@ -242,34 +242,55 @@ button:focus-visible {
 
 .chart {
   position: relative;
-  min-height: 310px;
+  width: 100%;
+  min-height: 0;
+  aspect-ratio: 1;
+  align-self: center;
+  justify-self: center;
   overflow: hidden;
-  border: 1px solid rgba(15, 69, 72, 0.45);
-  background:
-    radial-gradient(ellipse at 23% 25%, rgba(232, 213, 167, 0.98) 0 7%, transparent 7.5%),
-    radial-gradient(ellipse at 74% 24%, rgba(232, 213, 167, 0.95) 0 8%, transparent 8.5%),
-    radial-gradient(ellipse at 85% 58%, rgba(232, 213, 167, 0.92) 0 6%, transparent 6.5%),
-    radial-gradient(ellipse at 53% 75%, rgba(232, 213, 167, 0.94) 0 9%, transparent 9.5%),
-    radial-gradient(ellipse at 15% 71%, rgba(232, 213, 167, 0.92) 0 6.5%, transparent 7%),
-    radial-gradient(ellipse at 44% 43%, rgba(232, 213, 167, 0.95) 0 7%, transparent 7.5%),
-    radial-gradient(circle at center, #34777a 0%, #276267 60%, #1b4d53 100%);
-  box-shadow: inset 0 0 50px rgba(0, 16, 23, 0.42);
+  border: 1px solid rgba(217, 173, 88, 0.3);
+  background: #082832;
+  box-shadow:
+    inset 0 0 46px rgba(0, 10, 15, 0.42),
+    0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.chart::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  border: 1px solid rgba(240, 216, 149, 0.13);
+  box-shadow: inset 0 0 34px rgba(1, 15, 21, 0.4);
+  pointer-events: none;
+}
+
+.chart-art {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 .chart-grid {
   position: absolute;
+  z-index: 1;
   inset: 0;
-  opacity: 0.18;
+  opacity: 0.08;
   background-image:
     linear-gradient(rgba(235, 224, 195, 0.55) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(235, 224, 195, 0.55) 1px, transparent 1px),
-    repeating-radial-gradient(circle at 48% 56%, transparent 0 32px, rgba(242, 230, 201, 0.22) 33px 34px);
-  background-size: 42px 42px, 42px 42px, 100% 100%;
+    linear-gradient(90deg, rgba(235, 224, 195, 0.55) 1px, transparent 1px);
+  background-size: 12.5% 12.5%, 12.5% 12.5%;
+  pointer-events: none;
 }
 
 .depth {
   position: absolute;
-  color: rgba(241, 228, 195, 0.4);
+  z-index: 3;
+  color: rgba(241, 228, 195, 0.42);
   font-family: var(--font-geist-mono), monospace;
   font-size: 8px;
 }
@@ -281,14 +302,14 @@ button:focus-visible {
 .map-port {
   position: absolute;
   z-index: 4;
-  width: 76px;
-  min-height: 54px;
-  padding: 4px;
+  width: 82px;
+  min-height: 68px;
+  padding: 8px 4px;
   transform: translate(-50%, -50%);
   border: 0;
-  border-radius: 50%;
+  border-radius: 36px;
   background: transparent;
-  color: var(--ink-deep);
+  color: var(--paper);
   cursor: pointer;
   touch-action: manipulation;
 }
@@ -296,18 +317,28 @@ button:focus-visible {
 .map-port::before {
   content: "";
   position: absolute;
-  inset: 7px 13px 15px;
-  border: 1px dashed rgba(6, 28, 37, 0.32);
+  left: 50%;
+  top: 23px;
+  width: 7px;
+  height: 7px;
+  transform: translate(-50%, -50%);
+  border: 1px solid var(--brass-light);
   border-radius: 50%;
+  background: var(--coral);
+  box-shadow: 0 0 0 3px rgba(5, 24, 31, 0.7), 0 0 10px rgba(239, 114, 88, 0.55);
 }
 
 .map-port.selected::after {
   content: "";
   position: absolute;
-  inset: -5px 1px 5px;
-  border: 2px solid var(--coral);
+  left: 50%;
+  top: 23px;
+  width: 40px;
+  height: 40px;
+  transform: translate(-50%, -50%);
+  border: 1.5px solid var(--coral);
   border-radius: 50%;
-  box-shadow: 0 0 0 4px rgba(239, 114, 88, 0.16);
+  box-shadow: 0 0 0 4px rgba(239, 114, 88, 0.12), inset 0 0 12px rgba(239, 114, 88, 0.1);
   animation: portPulse 2s ease-in-out infinite;
 }
 
@@ -318,27 +349,39 @@ button:focus-visible {
 .port-symbol {
   position: relative;
   z-index: 1;
-  display: block;
-  font-size: 19px;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto;
+  border: 1px solid rgba(240, 216, 149, 0.7);
+  border-radius: 50%;
+  background: rgba(3, 20, 27, 0.82);
+  color: var(--brass-light);
+  font-size: 14px;
   line-height: 1;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.42);
 }
 
 .port-label {
   position: absolute;
-  top: calc(100% - 10px);
+  top: 48px;
   left: 50%;
   width: max-content;
   max-width: 92px;
   transform: translateX(-50%);
-  padding: 2px 4px;
+  padding: 3px 6px;
+  border: 1px solid rgba(217, 173, 88, 0.38);
   border-radius: 2px;
-  background: rgba(239, 229, 202, 0.92);
-  color: #15353b;
+  background: rgba(3, 20, 27, 0.88);
+  color: var(--paper);
   font-family: var(--font-geist-mono), monospace;
   font-size: 8px;
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.025em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.28);
 }
 
 .home-harbor {
@@ -376,13 +419,14 @@ button:focus-visible {
   top: 56%;
   height: 2px;
   transform-origin: left center;
-  border-top: 2px dashed rgba(255, 250, 240, 0.8);
+  border-top: 2px dashed var(--coral);
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
 }
 
 .route-ship {
   position: absolute;
   top: -9px;
-  color: var(--coral);
+  color: var(--brass-light);
   font-size: 15px;
   filter: drop-shadow(0 2px 2px rgba(0,0,0,.5));
   transition: left 0.8s ease;
@@ -866,7 +910,7 @@ button:focus-visible {
   .voyage-strip { grid-column: 1 / -1; grid-row: 2; min-width: 0; margin-top: 8px; }
   .bridge-grid { height: auto; grid-template-columns: minmax(0, 1.25fr) minmax(235px, .75fr); }
   .chart-panel { grid-column: 1 / -1; min-height: 570px; }
-  .chart { min-height: 420px; }
+  .chart { width: min(100%, 560px); min-height: 0; }
   .middle-stack { min-height: 560px; }
   .instrument-stack { min-height: 560px; }
   .destination-copy p { max-width: 330px; }
@@ -879,7 +923,7 @@ button:focus-visible {
   .voyage-strip { order: 3; width: 100%; }
   .bridge-grid { grid-template-columns: 1fr; }
   .chart-panel { min-height: 610px; }
-  .chart { min-height: 420px; }
+  .chart { width: 100%; min-height: 0; }
   .middle-stack, .instrument-stack { min-height: auto; }
   .report-panel { min-height: 470px; }
   .instrument-stack { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto auto; }

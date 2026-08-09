@@ -45,6 +45,7 @@ test("includes install and social-preview assets", async () => {
   await Promise.all([
     access(new URL("../public/manifest.webmanifest", import.meta.url)),
     access(new URL("../public/favicon.png", import.meta.url)),
+    access(new URL("../public/great-indoor-sea-v2.webp", import.meta.url)),
     access(new URL("../public/og.png", import.meta.url)),
   ]);
 });

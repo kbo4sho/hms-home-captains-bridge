@@ -2,7 +2,7 @@
 
 Turn the whole house into a boat and lead the family on an indoor voyage.
 
-H.M.S. Home is an iPad-first family game with a nautical house chart, selectable destinations, voyage events, meaningful crew choices, an engine telegraph, radar, ship’s horn, cabin lights, weather instruments, and a persistent captain’s log.
+H.M.S. Home is an iPad-first family game with a richly illustrated nautical house chart, selectable destinations, voyage events, meaningful crew choices, an engine telegraph, radar, ship’s horn, cabin lights, weather instruments, and a persistent captain’s log.
 
 ## How to play
 
